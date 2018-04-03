@@ -8,8 +8,8 @@ contract('King', async function ([deployer, userOne, userTwo, userThree]) {
         king = await King.new({from: deployer});
     });
 
-    //Let's start off by ensuring that the user sends ether
-    it("If ether is not sent, reject the transaction.", async() => {
+    //this should fail until the smart contract logic has been changed
+    it("Take the throne with 1 Wei transaction", async() => {
         const txn = await king.takeThrone({value: 1});
         assert.equal(await king.king.call(), deployer, "King was not re-assigned");
     });
